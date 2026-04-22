@@ -1,0 +1,1376 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#140F0F">
+  <meta name="author" content="Linki4964">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="descreption:Top 10 is a standard awareness for the web deveplopers and web application security 1.Broken Acces Control 失效的访问控制Description:失效的访问控制常常会导致用户的认证信息被泄露，被删除，被修改或者是执行超出权限范围的功能， Vulnerabilities:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OWSP Top10 2025解析">
+<meta property="og:url" content="https://linki4964.github.io/2026/04/22/top-10/index.html">
+<meta property="og:site_name" content="Linki&#39;s Blog">
+<meta property="og:description" content="descreption:Top 10 is a standard awareness for the web deveplopers and web application security 1.Broken Acces Control 失效的访问控制Description:失效的访问控制常常会导致用户的认证信息被泄露，被删除，被修改或者是执行超出权限范围的功能， Vulnerabilities:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-22T13:37:38.000Z">
+<meta property="article:modified_time" content="2026-04-22T13:40:47.735Z">
+<meta property="article:author" content="Linki4964">
+<meta property="article:tag" content="Top 10">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>OWSP Top10 2025解析 - Linki&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/csdn/iconfont.css">
+<link rel="stylesheet" href="/css/gmail/iconfont.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"linki4964.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Lynki&#39;s BLOG</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                
+                <span>Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                
+                <span>Category</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>Home</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>Archive</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>Category</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-link-fill"></i>
+                  <span>About</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OWSP Top10 2025解析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-22 21:37" pubdate>
+          2026年4月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          46 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OWSP Top10 2025解析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="descreption"><a href="#descreption" class="headerlink" title="descreption:"></a>descreption:</h2><p>Top 10 is a standard awareness for the web deveplopers and web application security</p>
+<h2 id="1-Broken-Acces-Control-失效的访问控制"><a href="#1-Broken-Acces-Control-失效的访问控制" class="headerlink" title="1.Broken Acces Control 失效的访问控制"></a>1.Broken Acces Control 失效的访问控制</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p>失效的访问控制常常会导致用户的认证信息被<code>泄露</code>，被<code>删除</code>，被<code>修改</code>或者是执行<code>超出权限范围</code>的功能，</p>
+<h3 id="Vulnerabilities"><a href="#Vulnerabilities" class="headerlink" title="Vulnerabilities:"></a>Vulnerabilities:</h3><ol>
+<li>未授权访问</li>
+</ol>
+<ul>
+<li>未授权访问，可以越权访问特定功能，没有经过用户校验（功能限制丢失）<ul>
+<li>任意用户访问，删除JWT以后依然可以进行访问的操作</li>
+</ul>
+</li>
+<li>爆破发现未经授权的页面可以进入</li>
+<li>API未授权访问,一些可以被任意用户轻易调用的任意API<ul>
+<li>&#x2F;register -&gt; 直达注册界面</li>
+<li>&#x2F;delete删除任意用户</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>越权访问<br>可以通过修改任意特定值绕过或者访问一些不属于自己的功能</li>
+</ol>
+<ul>
+<li>可以使用特定参数符查看其他账户的信息或者功能（越权访问）<ul>
+<li>?id &#x3D;1 (用户1) ———&gt; ?id &#x3D; 2(用户2)</li>
+</ul>
+</li>
+<li>绕过访问控制检查，通过修改url参数，应用状态或者修改<code>API</code>的权限，访问本不可访问的功能<ul>
+<li>staute:guest –&gt; staute:admin</li>
+<li>删除disabled后可以访问</li>
+</ul>
+</li>
+<li>CORS配置错误，导致API可以进未授权访问<ul>
+<li>一个网站本身因为有一些公共服务也有一些私人服务，因为配置错误倒是私人服务也会被访问或者使用公共服务处理私人服务的请求</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>权限提升</li>
+</ol>
+<ul>
+<li>权限提升，没有登录就可以使用登录功能，可以将自己升级为管理员或者是其他更高权限的用户等级<ul>
+<li>staute:guest –&gt; staute:admin</li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>针对cookie的攻击</li>
+</ol>
+<ul>
+<li>元数据丢失，可以针对<code>JWT</code>进行攻击,重放<code>JWT</code>，篡改<code>cookie</code></li>
+</ul>
+<h3 id="How-to-prvent"><a href="#How-to-prvent" class="headerlink" title="How to prvent"></a>How to prvent</h3><p>访问控制只能被在被信任的服务器侧代码和无服务API才能被发挥作用，简单来讲就是你不能用让攻击者轻易的修改你的元数据。</p>
+<ul>
+<li>除了公共资源以外其他都拒绝</li>
+<li>建立统一的访问控制机制，建立一次即可防御大部分的CROS</li>
+<li>访问控制模型应该强制记录所有权，不能交给用户创建，读取，更新或者删除等</li>
+<li>核心业务代码接口卡必须强制绑定核心业务代码模块</li>
+<li>禁用web服务器目录列表，确保web根目录中不存在元数据或者备份文件</li>
+<li>记录访问访问失败记录，如果访问失败应该适当发出警报</li>
+<li>对API的访问速度进行限制，可以有效防止API被爆破</li>
+<li>即使销毁有状态的会话(stateful seesion)，对于无状态的token应该即使过期(stateless JWT)，如果需要长时间存在的token(Refresh Token)应该使用刷新令牌和OAuth</li>
+<li>使用成熟的工具和工具包进行控制访问</li>
+</ul>
+<h2 id="2-Securoty-Misconfiguration-安全配置错误"><a href="#2-Securoty-Misconfiguration-安全配置错误" class="headerlink" title="2. Securoty Misconfiguration 安全配置错误"></a>2. Securoty Misconfiguration 安全配置错误</h2><p>安全配置错误往往是因为系统，应用，云服务被错误的配置然后创造出了安全漏洞</p>
+<h3 id="Vulnerabilities-1"><a href="#Vulnerabilities-1" class="headerlink" title="Vulnerabilities"></a>Vulnerabilities</h3><ul>
+<li>缺少修改适当的参数，或者权限配置存在不当<ul>
+<li>数据库直接使用了root权限</li>
+<li>云存储S3桶被公开可读</li>
+</ul>
+</li>
+<li>不需要的功能或者服务被开启或者服务<ul>
+<li>开启了不该开启的服务，如22，21等</li>
+</ul>
+</li>
+<li>默认账户和密码未被修改<ul>
+<li>忘记修改默认密码</li>
+</ul>
+</li>
+<li>缺少对控制中心配置或者中断发送配置错误信息，错误的信息会被展示给用户<ul>
+<li>SQL注入，报错注入</li>
+<li>配置泄露</li>
+<li>路径泄露</li>
+</ul>
+</li>
+<li>在新升级的系统，未及时开启或者配置安全功能</li>
+<li>应用程序，服务或者数据库，框架中的值违背设置为完全的值<ul>
+<li>数据库密码未被加密</li>
+<li>密码传输未被加密</li>
+</ul>
+</li>
+<li>服务器未发送安全标头</li>
+</ul>
+<h3 id="How-to-prevent"><a href="#How-to-prevent" class="headerlink" title="How to prevent"></a>How to prevent</h3><p>应该重视整个安装流程的安装</p>
+<ul>
+<li>安装的过程应该保持配置统一，高效，快捷，可重复，让开发，QA，产品环境都需要进行统一，使用不同的凭证。这个安装的过程应该保证全场自动化</li>
+<li>最小的的平台，没有不需要的功能，文档，或者缓存。溢出护着不安装没有必要的功能和框架</li>
+<li>及时更新所有的安全说明，版本更新和补丁</li>
+<li>配置安全令牌，想客户端发送安全指令</li>
+<li>自动验证处理配置和设置的有效性</li>
+<li>主动添加配置，拦截过多和不必要的错误信息</li>
+<li>如果验证自动不是自动化，至少要保证每年都进行人工验证</li>
+</ul>
+<h2 id="3-Software-Supply-Chain-Failures-软件供应链故障"><a href="#3-Software-Supply-Chain-Failures-软件供应链故障" class="headerlink" title="3. Software Supply Chain Failures 软件供应链故障"></a>3. Software Supply Chain Failures 软件供应链故障</h2><p>软件供应链故障，软件在<code>开发</code>,<code>构建</code>，<code>发布</code>和更新的过程中被破坏和攻击</p>
+<h3 id="Vulnerable"><a href="#Vulnerable" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ol>
+<li><p>供应链中的软件存在漏洞</p>
+<ul>
+<li>没有仔细跟踪所有使用的组件的版本，包括直接使用的组件以及嵌套的依赖项（依赖管理混乱，依赖没有被关注）<ul>
+<li>npm投毒</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>软件过时或未及时检查漏洞</p>
+<ul>
+<li>没有定时扫描路段和关注提交所使用的组件的安全报告（没有即使进行漏洞扫描，查看安全公告更新）</li>
+<li>没有定时跟踪和关注之间，包括跟踪IDE,IDE拓展，和更新以及组织的代码仓库，沙箱，镜像和库仓库，产物创建和存储（代码变更未被关注）</li>
+<li>没有基于风险即使修复或者升级底层平台，框架和依赖项，这种情况通常发送在没有即使更新（漏洞没有及时修复）</li>
+<li>没有确保系统中每个部分的配置安全（更新测试不兼容性）</li>
+<li>软件存在漏洞，不支持或者过时。包括操作系统，web，应用服务器，数据库管理系统，应用的API和运行环境和运行库（软件的过时或者存在漏洞未修复）</li>
+</ul>
+</li>
+<li><p>软件权限问题存在错误</p>
+<ul>
+<li>缺少关注整个软件供应链的每个部分，特别是访问控制和应用的最小权限（缺少最小权限原理）</li>
+<li>供应链系统缺少职责分离，在没有监督的情况下就部署到生产环境（权限分离）</li>
+<li>CI&#x2F;CD（持续集成&#x2F;持续部署）比生产环境更弱(部署和交付系统被攻击)</li>
+<li>配置不安全<ul>
+<li>默认密码，S3桶公开，开发者模式开启</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="How-to-prevent-1"><a href="#How-to-prevent-1" class="headerlink" title="How to prevent:"></a>How to prevent:</h3><ul>
+<li>资产可视化，需要SBOM（软件物料清单）+依赖管理</li>
+<li>漏洞监控+自动适应</li>
+<li>依赖安全策略 -&gt; 可信来源，最小依赖原则，控制版本,处理废弃库</li>
+<li>CI&#x2F;CD 安全 -&gt;  构建流程，防止”一人掌控全部”（职责分离），构建可信性（签名构建，防篡改日志，构建可追溯）</li>
+<li>全链路变更管理 -&gt; 记录所有的变化，任何变化都必须”可以审计”</li>
+</ul>
+<h2 id="4-Cryptographic-Failures-加密失效"><a href="#4-Cryptographic-Failures-加密失效" class="headerlink" title="4.Cryptographic Failures 加密失效"></a>4.Cryptographic Failures 加密失效</h2><p>所有传输中的数据都应该要被加密，除了传输中的数据需要加密，静态数据也要被加密，比如<code>数据库的用户数据</code>,以及更高层的加密（应用层）如<code>密码</code>,<code>银行卡号</code>，<code>医疗数据</code>等数据</p>
+<h3 id="Vulnerable-1"><a href="#Vulnerable-1" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ol>
+<li>加密算法本身被破解</li>
+</ol>
+<ul>
+<li>使用老旧的加密算法或者协议或者过弱的加密算法(算法太老，太弱)<ul>
+<li>md5加密过时算法</li>
+<li>SHA1</li>
+<li>明文</li>
+</ul>
+</li>
+<li>加密模式与初始化向量(初始化向量乱用)<ul>
+<li>重复IV</li>
+<li>不随机</li>
+</ul>
+</li>
+<li>随机数的指令，是否加入了一个简单的种子，随机数种子是否容易被猜到(随机数不安全)<ul>
+<li>rand()</li>
+<li>固定seed</li>
+</ul>
+</li>
+<li>哈希函数，是否以及弃用的哈希函数（哈希函数使用错误）<ul>
+<li>md5存密码</li>
+<li>用非加密hash</li>
+</ul>
+</li>
+<li>降级和绕过(算法可以被降级)<ul>
+<li>强制使用旧TLS</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>密钥泄露</li>
+</ol>
+<ul>
+<li>默认加密加密算法被使用或者弱key或者被复用，或者正确的代码被泄露，密钥被破解(密钥管理缺失)<ul>
+<li>默认密钥</li>
+<li>密钥长度太短</li>
+<li>密钥复用</li>
+</ul>
+</li>
+<li>一个加密密钥是否在代码仓库里面被泄露（密钥写进代码里）</li>
+<li>密码当作密钥，是否将用户密码作为密钥使用（密码当成了密钥）<ul>
+<li>key &#x3D; password</li>
+</ul>
+</li>
+<li>错误信息与侧信道攻击（错误信息泄露）<ul>
+<li>padding oracle</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>传输或存储流程未被加密或存在缺陷</li>
+</ol>
+<ul>
+<li>收到服务器证书是否经过校验,证书校验（不验证证书）<ul>
+<li>忽略SSL错误</li>
+<li>不检查证书链</li>
+</ul>
+</li>
+<li>没有被强制加密或者头部缺少安全头部（没有强制加密使用了HTTP）<ul>
+<li>中间人攻击</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent-2"><a href="#How-to-prevent-2" class="headerlink" title="How to prevent"></a>How to prevent</h3><ul>
+<li>数据分类:对不同等级的数据进行加密</li>
+<li>减少数据暴露面：及时删除，使用token替代真实数据，截断</li>
+<li>密钥管理：用HSM(硬件安全模块),密钥必须随机生成，如果使用密码需经过KDF</li>
+<li>加密算法和实现：<ul>
+<li>成熟实现：不要自己写算法</li>
+<li>强算法标准:少使用md5,sha1尽量使用AES,SHA-256</li>
+<li>认证加密，防止被篡改</li>
+</ul>
+</li>
+<li>数据存储安全<ul>
+<li>密码存储：加盐(salt)，可调成本(work factor)</li>
+</ul>
+</li>
+<li>数据传输安全<ul>
+<li>强制HTTPS</li>
+<li>强制浏览器使用HTTPS</li>
+</ul>
+</li>
+<li>IV(初始化向量与随机数)<ul>
+<li>IV要求：不重复</li>
+<li>随机数必须：使用CSRNG，不要自己写seed</li>
+</ul>
+</li>
+<li>缓存和数据泄露<ul>
+<li>禁止缓存泄露敏感数据</li>
+</ul>
+</li>
+<li>配置与审计<ul>
+<li>定期安全审计</li>
+<li>工具扫描</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-Injection-注入"><a href="#5-Injection-注入" class="headerlink" title="5.Injection 注入"></a>5.Injection 注入</h2><p>当用户输入被当成<code>代码</code>执行的时候，就产生了注入漏洞</p>
+<h3 id="Vulnerable-2"><a href="#Vulnerable-2" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ul>
+<li>用户输入的数据未被验证，过滤，消毒(没有做输入校验)</li>
+<li>动态查询或者没有上下文感知转义的(使用拼接字符串动态查询)<ul>
+<li>sql查询语句</li>
+</ul>
+</li>
+<li>非参数化调用之间在解释器中进行(没有进行参数化)</li>
+<li>自动化取数工具ORM被用于查询(ORM工具被注入)<ul>
+<li>User.objects.filter(“name&#x3D;” + input)</li>
+</ul>
+</li>
+<li>恶意数据与命令混在一起(直接拼接命令)<ul>
+<li>RCE</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent-3"><a href="#How-to-prevent-3" class="headerlink" title="How to prevent:"></a>How to prevent:</h3><p> 防御注入攻击需要讲<code>数据</code>和<code>命令</code>彻底分开</p>
+<ul>
+<li>使用安全API&#x2F;参数化查询</li>
+<li>ORM工具（对象映射关系）<ul>
+<li>Django ORM</li>
+</ul>
+</li>
+<li>警惕套中套，如二次注入，注意存储过程内部还存在拼接字符</li>
+<li>严格输入的内容，过滤输入的内容</li>
+<li>给危险的字符进行转义</li>
+</ul>
+<h2 id="6-不安全的设计"><a href="#6-不安全的设计" class="headerlink" title="6.不安全的设计"></a>6.不安全的设计</h2><p>系统在设计阶段就没考虑安全，导致”根本没有防御能力”</p>
+<ul>
+<li>不安全实现：设计正确，但是代码在编写的时候存在问题</li>
+<li>不安全设计：从设计开始就已经存在问题，系统没有权限控制机制，没有身份认证模块等</li>
+</ul>
+<h3 id="安全设计三大核心"><a href="#安全设计三大核心" class="headerlink" title="安全设计三大核心"></a>安全设计三大核心</h3><ol>
+<li>需求收集和资源管理<ul>
+<li>业务方沟通，明确业务</li>
+<li>明确安全目标(CIAA,Confidentiality保密性，Integrity完整性，Availability可用性，Authenticity真实性)</li>
+<li>分析系统暴露面</li>
+</ul>
+</li>
+<li>安全设计<ul>
+<li>威胁建模</li>
+<li>权限设计</li>
+<li>数据流设计</li>
+<li>攻击面设计</li>
+</ul>
+</li>
+<li>安全开发生命周期<ul>
+<li>设计阶段</li>
+<li>测试阶段</li>
+<li>测试阶段</li>
+<li>上线后</li>
+</ul>
+</li>
+</ol>
+<h3 id="How-to-prevent-4"><a href="#How-to-prevent-4" class="headerlink" title="How to prevent"></a>How to prevent</h3><ul>
+<li>建立安全的开发生命周期</li>
+<li>使用”安全设计模板”</li>
+<li>威胁建模</li>
+<li>将安全写入需求</li>
+<li>多层校验</li>
+<li>测试攻击场景</li>
+<li>分层隔离</li>
+<li>多租户隔离</li>
+</ul>
+<h2 id="7-Authentication-Failures-认证失效"><a href="#7-Authentication-Failures-认证失效" class="headerlink" title="7.Authentication Failures 认证失效"></a>7.Authentication Failures 认证失效</h2><h3 id="Vulnerable-3"><a href="#Vulnerable-3" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ol>
+<li>密码泄露或者被窃取</li>
+</ol>
+<ul>
+<li>自动化攻击，攻击者利用泄露的合法用户名和密码列表进行尝试（凭证填充攻击）<ul>
+<li>撞库攻击</li>
+<li>混合密码攻击（使用泄露信息进行增量枚举）</li>
+</ul>
+</li>
+<li>允许暴力破解或其他自动化脚本攻击，但是系统没有进行阻止（暴力破解）<ul>
+<li>密码爆破</li>
+</ul>
+</li>
+<li>弱口令与默认配置</li>
+<li>已泄露平局检测缺失，可以使用已泄露的凭据创建用户（允许已泄露的密码注册）<ul>
+<li>重复注册</li>
+<li>用户名撞库</li>
+<li>影子账户</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>密码保护机制存在问题</li>
+</ol>
+<ul>
+<li>不安全的密码找回<ul>
+<li>任意用户密码重置</li>
+<li>安全问题太弱</li>
+</ul>
+</li>
+<li>存储方式错误（存储方式不安全）<ul>
+<li>使用明文，加密或弱哈希的方式存储密码</li>
+</ul>
+</li>
+<li>多因素认证缺失（MFA）<ul>
+<li>缺少二步认证和邮箱认证</li>
+</ul>
+</li>
+<li>MFA可用被绕过</li>
+</ul>
+<ol start="3">
+<li>会话管理机制缺陷</li>
+</ol>
+<ul>
+<li>session（会话管理问题）<ul>
+<li>token复用</li>
+<li>seesion不注销</li>
+<li>token长期有效</li>
+</ul>
+</li>
+<li>权限和受众断言错误，未能正确断言所提供的适用范围和目标受众范围（身份范围问题）<ul>
+<li>A系统可以用来登录B系统</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent-5"><a href="#How-to-prevent-5" class="headerlink" title="How to prevent"></a>How to prevent</h3><ul>
+<li>强化认证<ul>
+<li>多因素认证(MFA)：使用短信，硬件key,TOTP(Google Authenticator)</li>
+</ul>
+</li>
+<li>密码安全策略<ul>
+<li>不允许默认密码</li>
+<li>不允许弱密码</li>
+<li>检查已泄露密码</li>
+<li>使用现代密码策略(MIST)：鼓励长密码，不定期强制更换，不强制复杂，只有泄露才换密码</li>
+<li>鼓励使用密码管理器</li>
+</ul>
+</li>
+<li>防自动化攻击<ul>
+<li>限制登录尝试</li>
+<li>防止账号枚举：账号或密码错误</li>
+<li>监控和告警</li>
+</ul>
+</li>
+<li>安全的会话管理<ul>
+<li>seesion需要：高随机，存在cookie，secure</li>
+<li>seesion生命周期控制：登出后失效，长时间不操作失效，最大生命周期</li>
+</ul>
+</li>
+<li>使用成熟的认证系统</li>
+</ul>
+<h2 id="8-Software-or-Data-Integrity-Failures-软件或者数据认证失败"><a href="#8-Software-or-Data-Integrity-Failures-软件或者数据认证失败" class="headerlink" title="8.Software or Data Integrity Failures 软件或者数据认证失败"></a>8.Software or Data Integrity Failures 软件或者数据认证失败</h2><p> 系统错误的信任了不该信任的代码或数据</p>
+<h3 id="Vulnerable-4"><a href="#Vulnerable-4" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ol>
+<li>针对组件和模块</li>
+</ol>
+<ul>
+<li>依赖不可靠来源，仓库或CDN的插件，库或者模块（使用不可信赖的第三方插件）<ul>
+<li>npm&#x2F;Maven依赖</li>
+<li>CDN资源</li>
+</ul>
+</li>
+<li>不安全的CI&#x2F;CD流水线</li>
+<li>自动更新功能再下载更新的时候没足够的完整性验证(自动更新机制不安全)<ul>
+<li>软件自动下载</li>
+<li>没有验证签名</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>针对数据接收</li>
+</ol>
+<ul>
+<li>对象或数据被序列化程攻击者可修改的结构（不安全序列化）<ul>
+<li>序列化，反序列化漏洞</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent："><a href="#How-to-prevent：" class="headerlink" title="How to prevent："></a>How to prevent：</h3><ul>
+<li>验证完整性<ul>
+<li>确保内容未被篡改，来源可信</li>
+</ul>
+</li>
+<li>控制依赖来源<ul>
+<li>使用官方源，内部私有仓库</li>
+<li>内部依赖白名单</li>
+</ul>
+</li>
+<li>代码变更必须审查</li>
+<li>加固CI&#x2F;CD</li>
+<li>防止不安全反序列化<ul>
+<li>不信任客户端数据</li>
+<li>做完整性校验</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-Security-Logging-Alerting-Failures-安全日志或警报失效"><a href="#9-Security-Logging-Alerting-Failures-安全日志或警报失效" class="headerlink" title="9.Security Logging &amp; Alerting Failures 安全日志或警报失效"></a>9.Security Logging &amp; Alerting Failures 安全日志或警报失效</h2><h3 id="Vulnerable-5"><a href="#Vulnerable-5" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ul>
+<li>可审计事件未记录或者不记录（日志记录缺失）</li>
+<li>无法检测实时攻击（日志记录质量太差）</li>
+<li>日志可以被篡改</li>
+<li>有日志但是没有人及时查看</li>
+<li>没有告警机制</li>
+<li>没有实时响应能力</li>
+<li>日记只存在本地，没有备份</li>
+<li>日志本身不够安全，日记中记录的敏感信息未被正确编码<ul>
+<li>日志注入攻击</li>
+</ul>
+</li>
+<li>告警系统失效<ul>
+<li>没有告警规则</li>
+<li>误报太多</li>
+<li>没有应急响应流程</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent-6"><a href="#How-to-prevent-6" class="headerlink" title="How to prevent"></a>How to prevent</h3><ul>
+<li>记录所有的日志，包括失败事件<ul>
+<li>登录</li>
+<li>权限操作</li>
+<li>输入校验失败</li>
+<li>高价值操作</li>
+<li>用户信息</li>
+<li>时间</li>
+<li>来源</li>
+</ul>
+</li>
+<li>日志安全<ul>
+<li>防篡改</li>
+<li>防注入</li>
+</ul>
+</li>
+<li>监控和告警<ul>
+<li>实时监控</li>
+<li>设置告警</li>
+</ul>
+</li>
+<li>响应机制<ul>
+<li>应急响应流程</li>
+<li>建立SOC</li>
+</ul>
+</li>
+<li>蜜罐数据</li>
+<li>行为分析</li>
+<li>工具<ul>
+<li>waf</li>
+<li>ELK</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-Mishandling-of-Exceptional-Conditions-特殊情况处理不当"><a href="#10-Mishandling-of-Exceptional-Conditions-特殊情况处理不当" class="headerlink" title="10.Mishandling of Exceptional Conditions 特殊情况处理不当"></a>10.Mishandling of Exceptional Conditions 特殊情况处理不当</h2><h3 id="Vulnerable-6"><a href="#Vulnerable-6" class="headerlink" title="Vulnerable"></a>Vulnerable</h3><ul>
+<li>异常处理情况失职(没有预防异常)<ul>
+<li>没有防护住脏数据,</li>
+<li>没有能认出脏数据</li>
+<li>没能处理脏数据</li>
+</ul>
+</li>
+<li>没有异常检测<ul>
+<li>错误发生未被捕获</li>
+</ul>
+</li>
+<li>异常处理方式错误</li>
+<li>异常处理不统一</li>
+<li>安全漏洞<ul>
+<li>逻辑漏洞</li>
+<li>溢出</li>
+<li>条件竞争</li>
+<li>欺诈交易</li>
+<li>认证授权问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="How-to-prevent-7"><a href="#How-to-prevent-7" class="headerlink" title="How to prevent"></a>How to prevent</h3><ul>
+<li>预防异常<ul>
+<li>输入校验</li>
+<li>限制资源：rete limit,quota</li>
+</ul>
+</li>
+<li>捕获异常<ul>
+<li>不允许异常漏掉</li>
+</ul>
+</li>
+<li>正确处理异常<ul>
+<li>给用户合理提示</li>
+<li>记录日志</li>
+<li>必要时告警</li>
+</ul>
+</li>
+<li>全局异常处理</li>
+<li>失败即回滚<ul>
+<li>失败即关闭原则</li>
+</ul>
+</li>
+<li>统一异常处理原则<ul>
+<li>统一规范</li>
+<li>统一日志</li>
+<li>统一响应</li>
+</ul>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="category-chain-item">渗透测试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Top-10/" class="print-no-link">#Top 10</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OWSP Top10 2025解析</div>
+      <div>https://linki4964.github.io/2026/04/22/top-10/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Linki4964</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/04/22/pozhenge/" title="破振阁破振试炼 wp">
+                        <span class="hidden-mobile">破振阁破振试炼 wp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+      <div class="footer-wrapper">
+  <div class="footer-copyright">
+    ©2026<i class="iconfont icon-user-fill"></i> <strong>凌麒 Lynki</strong>
+  </div>
+
+  <div class="footer-badges">
+    <span class="badge-group">
+      <span class="badge-prefix">Framework</span><span class="badge-value bg-hexo">Hexo</span>
+    </span>
+    <span class="badge-group">
+      <span class="badge-prefix">Theme</span><span class="badge-value bg-fluid">Fluid</span>
+    </span>
+  </div>
+
+  <div class="footer-runtime">
+    <i class="iconfont icon-love heart-beat"></i>
+    <span id="runtime_area">载入运行时间...</span>
+  </div>
+</div>
+
+<style>
+  .footer-wrapper { line-height: 2; padding: 10px 0; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  
+  /* 徽章样式 */
+  .footer-badges { display: flex; justify-content: center; gap: 8px; margin: 5px 0; flex-wrap: wrap; }
+  .badge-group { display: inline-flex; border-radius: 4px; overflow: hidden; font-size: 11px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .badge-prefix { background: #555; color: #fff; padding: 0 8px; }
+  .badge-value { padding: 0 8px; color: #fff; }
+  .bg-hexo { background: #2483ff; }
+  .bg-fluid { background: #3cba54; }
+  
+  /* 心跳动画 */
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+  .heart-beat { display: inline-block; color: #ff5252; animation: heartbeat 1.5s infinite; margin-right: 5px; }
+  
+  .footer-runtime { font-size: 13px; color: #666; font-weight: 500; }
+</style>
+
+<script>
+  function siteTime() {
+    window.setTimeout("siteTime()", 1000);
+    var startDay = new Date("2026/04/21 00:00:00"); // 记得改成你实际建站日期
+    var today = new Date();
+    var diff = today - startDay;
+    var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var m = Math.floor((diff / (1000 * 60)) % 60);
+    var s = Math.floor((diff / 1000) % 60);
+    document.getElementById("runtime_area").innerHTML = "本站已运行 " + d + " 天 " + h + " 小时 " + m + " 分 ";
+  }
+  siteTime();
+</script>
+
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
