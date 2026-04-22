@@ -1010,7 +1010,7 @@ body.mobile-menu-open {
     --color-mode: "dark";
   }
   :root:not([data-user-color-scheme]) {
-    --body-bg-color: #4C4C52;
+    --body-bg-color: #11151a;
     --board-bg-color: #252d38;
     --text-color: #c4c6c9;
     --sec-text-color: #a7a9ad;
@@ -1020,7 +1020,7 @@ body.mobile-menu-open {
     --link-hover-color: #30a9de;
     --link-hover-bg-color: #364151;
     --line-color: #435266;
-    --navbar-bg-color: #4C4C52;
+    --navbar-bg-color: #11151a;
     --navbar-text-color: #d0d0d0;
     --subtitle-color: #d0d0d0;
     --scrollbar-color: #687582;
@@ -1041,7 +1041,7 @@ body.mobile-menu-open {
     :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
     :root:not([data-user-color-scheme]) .top-nav-collapse,
     :root:not([data-user-color-scheme]) .navbar-col-show {
-      background: rgba(76,76,82,0.7);
+      background: rgba(17,21,26,0.7);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
@@ -1050,7 +1050,7 @@ body.mobile-menu-open {
     :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
     :root:not([data-user-color-scheme]) .top-nav-collapse,
     :root:not([data-user-color-scheme]) .navbar-col-show {
-      background: #4c4c52;
+      background: #11151a;
     }
   }
   :root:not([data-user-color-scheme]) .license-box {
@@ -1064,7 +1064,7 @@ body.mobile-menu-open {
 }
 @media not print {
   [data-user-color-scheme="dark"] {
-    --body-bg-color: #4C4C52;
+    --body-bg-color: #11151a;
     --board-bg-color: #252d38;
     --text-color: #c4c6c9;
     --sec-text-color: #a7a9ad;
@@ -1074,7 +1074,7 @@ body.mobile-menu-open {
     --link-hover-color: #30a9de;
     --link-hover-bg-color: #364151;
     --line-color: #435266;
-    --navbar-bg-color: #4C4C52;
+    --navbar-bg-color: #11151a;
     --navbar-text-color: #d0d0d0;
     --subtitle-color: #d0d0d0;
     --scrollbar-color: #687582;
@@ -1095,7 +1095,7 @@ body.mobile-menu-open {
     [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
     [data-user-color-scheme="dark"] .top-nav-collapse,
     [data-user-color-scheme="dark"] .navbar-col-show {
-      background: rgba(76,76,82,0.7);
+      background: rgba(17,21,26,0.7);
       -webkit-backdrop-filter: blur(3px);
       backdrop-filter: blur(3px);
     }
@@ -1104,7 +1104,7 @@ body.mobile-menu-open {
     [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
     [data-user-color-scheme="dark"] .top-nav-collapse,
     [data-user-color-scheme="dark"] .navbar-col-show {
-      background: #4c4c52;
+      background: #11151a;
     }
   }
   [data-user-color-scheme="dark"] .license-box {

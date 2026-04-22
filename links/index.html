@@ -59,6 +59,11 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/csdn/iconfont.css">
+<link rel="stylesheet" href="/css/gmail/iconfont.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -403,8 +408,63 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-      
-<i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+      <div class="footer-wrapper">
+  <div class="footer-copyright">
+    ©2026<i class="iconfont icon-user-fill"></i> <strong>凌麒 Lynki</strong>
+  </div>
+
+  <div class="footer-badges">
+    <span class="badge-group">
+      <span class="badge-prefix">Framework</span><span class="badge-value bg-hexo">Hexo</span>
+    </span>
+    <span class="badge-group">
+      <span class="badge-prefix">Theme</span><span class="badge-value bg-fluid">Fluid</span>
+    </span>
+  </div>
+
+  <div class="footer-runtime">
+    <i class="iconfont icon-love heart-beat"></i>
+    <span id="runtime_area">载入运行时间...</span>
+  </div>
+</div>
+
+<style>
+  .footer-wrapper { line-height: 2; padding: 10px 0; font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+  
+  /* 徽章样式 */
+  .footer-badges { display: flex; justify-content: center; gap: 8px; margin: 5px 0; flex-wrap: wrap; }
+  .badge-group { display: inline-flex; border-radius: 4px; overflow: hidden; font-size: 11px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  .badge-prefix { background: #555; color: #fff; padding: 0 8px; }
+  .badge-value { padding: 0 8px; color: #fff; }
+  .bg-hexo { background: #2483ff; }
+  .bg-fluid { background: #3cba54; }
+  
+  /* 心跳动画 */
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+  .heart-beat { display: inline-block; color: #ff5252; animation: heartbeat 1.5s infinite; margin-right: 5px; }
+  
+  .footer-runtime { font-size: 13px; color: #666; font-weight: 500; }
+</style>
+
+<script>
+  function siteTime() {
+    window.setTimeout("siteTime()", 1000);
+    var startDay = new Date("2026/04/21 00:00:00"); // 记得改成你实际建站日期
+    var today = new Date();
+    var diff = today - startDay;
+    var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    var m = Math.floor((diff / (1000 * 60)) % 60);
+    var s = Math.floor((diff / 1000) % 60);
+    document.getElementById("runtime_area").innerHTML = "本站已运行 " + d + " 天 " + h + " 小时 " + m + " 分 ";
+  }
+  siteTime();
+</script>
+
     </div>
   
   
