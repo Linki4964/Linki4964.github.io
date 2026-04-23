@@ -317,37 +317,52 @@
 <div class="text-center">
   <div class="about-info">
     <div class="about-name">凌麒 Lynki</div>
-    <div class="about-intro">Dare to dream
+    <div class="about-intro"><div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+  <div style="font-size: 0.95rem; color: #ccc;">
+    网安这行水太深，我打算去 Dota2 里潜个水。
+  </div>
+  <div class="mood-bar" style="padding: 4px 12px; border-radius: 15px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); font-size: 13px;">
+    <span style="color: #888;">Mood:</span>
+    <span id="mood-text" style="margin-left: 5px; color: #3b82f6; font-weight: 500;">加载中...</span>
+  </div>
+</div>
+
 <style>
   .copy-toast {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    z-index: 9999;
-    display: none;
+    position: fixed; bottom: 10%; left: 50%; transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); color: #fff; padding: 8px 16px;
+    border-radius: 20px; font-size: 14px; z-index: 9999; display: none;
   }
+  .mood-bar { transition: all 0.3s ease; }
+  .mood-bar:hover { background: rgba(255,255,255,0.15) !important; }
 </style>
+
 <div id="toast" class="copy-toast">已复制到剪贴板</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Gmail 复制逻辑
     var gmailIcon = document.querySelector('.icon-gmail').parentElement;
     if (gmailIcon) {
       gmailIcon.addEventListener('click', function(e) {
         e.preventDefault();
         navigator.clipboard.writeText("frozenki4964@gmail.com");
-        
-        // 显示 Toast
         var toast = document.getElementById('toast');
         toast.style.display = 'block';
         setTimeout(function() { toast.style.display = 'none'; }, 2000);
       });
     }
+    // 心情语录
+    const moods = [
+      "周日：拒绝CTF，拒绝加班 😴",
+      "周一：在漏洞利用和被利用之间选择了被生活利用 🫠",
+      "周二：代码没写完，Dota不能停 🎮",
+      "周三：今日宜：圣剑翻盘；忌：半场开香槟 🍾",
+      "周四：肯德基疯狂星期四，谁请我吃？ 🍗",
+      "周五：下班倒计时，准备冲击冠绝 🏃",
+      "周六：通宵上分中，别叫我学网安 🌙"
+    ];
+    document.getElementById('mood-text').innerText = moods[new Date().getDay()];
   });
 </script>
 </div>
