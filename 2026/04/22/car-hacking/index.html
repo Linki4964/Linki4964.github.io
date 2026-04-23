@@ -19,24 +19,24 @@
   <meta name="author" content="凌麒 Lynki">
   <meta name="keywords" content="网络安全, 车联网安全, Cybersecurity, IoT Security, Dota2">
   
-    <meta name="description" content="如果你问我最好的dota2战队是谁，那么我一定会告诉你是：哥哥，那些东西，那些东西，fy god，伟哥….">
+    <meta name="description" content="针对ECu以及其他嵌入式系统的攻击查看电路板JtagICs -&gt; 集成电路FPGA -&gt; 可编程门阵列 连接方式PC -&gt;  TCK,TMS（CPU+FPGA）PC(TDI) -&gt; TDI,TDO(CPU) -&gt; TDI,TDI(FPGA) -&gt; PC(TDO) TCK -&gt; JTAG clock signal(JTAG同步时钟)TMS -&gt; TAP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="怀念最好的五个人">
-<meta property="og:url" content="https://linki4964.github.io/2026/04/22/lgd/index.html">
+<meta property="og:title" content="车联网安全笔记之ECU攻击，CAN逆向">
+<meta property="og:url" content="https://linki4964.github.io/2026/04/22/car-hacking/index.html">
 <meta property="og:site_name" content="Lynki">
-<meta property="og:description" content="如果你问我最好的dota2战队是谁，那么我一定会告诉你是：哥哥，那些东西，那些东西，fy god，伟哥….">
+<meta property="og:description" content="针对ECu以及其他嵌入式系统的攻击查看电路板JtagICs -&gt; 集成电路FPGA -&gt; 可编程门阵列 连接方式PC -&gt;  TCK,TMS（CPU+FPGA）PC(TDI) -&gt; TDI,TDO(CPU) -&gt; TDI,TDI(FPGA) -&gt; PC(TDO) TCK -&gt; JTAG clock signal(JTAG同步时钟)TMS -&gt; TAP">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://linki4964.github.io/2026/04/22/lgd/lgd.png">
-<meta property="article:published_time" content="2026-04-22T13:23:46.000Z">
-<meta property="article:modified_time" content="2026-04-22T13:29:23.175Z">
+<meta property="og:image" content="https://linki4964.github.io/2026/04/22/car-hacking/image-1.png">
+<meta property="article:published_time" content="2026-04-22T06:41:58.000Z">
+<meta property="article:modified_time" content="2026-04-23T06:45:56.168Z">
 <meta property="article:author" content="凌麒 Lynki">
-<meta property="article:tag" content="测试用例">
+<meta property="article:tag" content="网络安全, 车联网安全, Cybersecurity, IoT Security, Dota2">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://linki4964.github.io/2026/04/22/lgd/lgd.png">
+<meta name="twitter:image" content="https://linki4964.github.io/2026/04/22/car-hacking/image-1.png">
   
   
   
-  <title>怀念最好的五个人 - Lynki</title>
+  <title>车联网安全笔记之ECU攻击，CAN逆向 - Lynki</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -284,7 +284,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="怀念最好的五个人"></span>
+            <span id="subtitle" data-typed-text="车联网安全笔记之ECU攻击，CAN逆向"></span>
           
         </div>
 
@@ -295,8 +295,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-04-22 21:23" pubdate>
-          2026年4月22日 晚上
+        <time datetime="2026-04-22 14:41" pubdate>
+          2026年4月22日 下午
         </time>
       </span>
     
@@ -307,7 +307,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          52 字
+          1.7k 字
         
       </span>
     
@@ -318,7 +318,7 @@
         
         
         
-          1 分钟
+          14 分钟
         
       </span>
     
@@ -357,13 +357,61 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">怀念最好的五个人</h1>
+            <h1 id="seo-header">车联网安全笔记之ECU攻击，CAN逆向</h1>
             
             
               <div class="markdown-body">
                 
-                <p>如果你问我最好的dota2战队是谁，那么我一定会告诉你是：哥哥，那些东西，那些东西，fy god，伟哥….</p>
-<p><img src="/2026/04/22/lgd/lgd.png" srcset="/img/loading.gif" lazyload alt="PSG LGD"></p>
+                <h1 id="针对ECu以及其他嵌入式系统的攻击"><a href="#针对ECu以及其他嵌入式系统的攻击" class="headerlink" title="针对ECu以及其他嵌入式系统的攻击"></a>针对ECu以及其他嵌入式系统的攻击</h1><h2 id="查看电路板"><a href="#查看电路板" class="headerlink" title="查看电路板"></a>查看电路板</h2><h2 id="Jtag"><a href="#Jtag" class="headerlink" title="Jtag"></a>Jtag</h2><p>ICs -&gt; 集成电路<br>FPGA -&gt; 可编程门阵列</p>
+<h3 id="连接方式"><a href="#连接方式" class="headerlink" title="连接方式"></a>连接方式</h3><p>PC -&gt;  TCK,TMS（CPU+FPGA）<br>PC(TDI) -&gt; TDI,TDO(CPU) -&gt; TDI,TDI(FPGA) -&gt; PC(TDO)</p>
+<p>TCK -&gt; JTAG clock signal(JTAG同步时钟)<br>TMS -&gt; TAP manager system(JTAG TAP行为控制器)</p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ol>
+<li>下载烧录,结合jflash对flash芯片进行烧录</li>
+<li>debug调试结合jlink</li>
+<li>芯片引脚诊断，测试芯片各种引脚状态</li>
+</ol>
+<h3 id="jtagulator的使用"><a href="#jtagulator的使用" class="headerlink" title="jtagulator的使用"></a>jtagulator的使用</h3><p>主要有自动识别接口，逻辑分析仪，烧录器</p>
+<ol>
+<li>识别引脚</li>
+</ol>
+<h3 id="利用JTAG进行调试"><a href="#利用JTAG进行调试" class="headerlink" title="利用JTAG进行调试"></a>利用JTAG进行调试</h3><h2 id="串行线调试"><a href="#串行线调试" class="headerlink" title="串行线调试"></a>串行线调试</h2><p>STM32F4 -&gt; 使用的是串行调试，内置CAN支持的协议</p>
+<h2 id="高级用户调试器"><a href="#高级用户调试器" class="headerlink" title="高级用户调试器"></a>高级用户调试器</h2><h2 id="Nexus"><a href="#Nexus" class="headerlink" title="Nexus"></a>Nexus</h2><h2 id="故障注入（干扰攻击-毛刺攻击）"><a href="#故障注入（干扰攻击-毛刺攻击）" class="headerlink" title="故障注入（干扰攻击&#x2F;毛刺攻击）"></a>故障注入（干扰攻击&#x2F;毛刺攻击）</h2><p>原理：通过干扰芯片的正常攻击，导致跳过执行某些指令的一种攻击方式</p>
+<h3 id="时钟干扰"><a href="#时钟干扰" class="headerlink" title="时钟干扰"></a>时钟干扰</h3><ul>
+<li><p>时钟： 时钟就是单片机的心脏。每跳动一下。整个单片机的各个电路就同步的动作一下。时钟是单片机内部的元器件的一个统一参考依据，他是整个设备运行的依据，有了这个设备，系统就可以知道自己何时应该如何去执行一条指令，如果执行失败那么就会报错</p>
+</li>
+<li><p>时钟寄存器 -&gt; CLK</p>
+</li>
+<li><p>为什么需要时钟电路</p>
+<ul>
+<li>同步操作：单片机内部的各个功能模块，如CPU、存储器、输入&#x2F;输出接口等，需要在特定的时间点协同工作。时钟信号提供了一个同步基准，确保这些模块按照预定的时间序列进行操作。</li>
+<li>指令执行：单片机的CPU执行指令的速度是由时钟信号控制的。每个时钟周期，CPU执行一个或多个指令。时钟的存在确保了指令的有序执行。</li>
+<li>数据传输：在数据传输和处理过程中，时钟信号确保了数据在正确的时间被读取或写入。这对于确保数据的可靠性和一致性非常重要。</li>
+<li>定时器和计数器：许多单片机内置了定时器和计数器，用于执行定时任务、计算时间间隔等。这些功能通常依赖于时钟信号的精准计时。</li>
+<li>串行通信：时钟信号对于串行通信协议（如UART、SPI、I2C等）的正确传输和接收数据至关重要。时钟同步确保数据的准确传输。</li>
+<li>功耗管理：单片机通常具有不同的功耗模式，如运行模式、睡眠模式等。时钟电路有助于在不同的模式之间切换，并控制单片机的整体功耗。</li>
+</ul>
+</li>
+</ul>
+<h2 id="电源干扰："><a href="#电源干扰：" class="headerlink" title="电源干扰："></a>电源干扰：</h2><ul>
+<li>电源干扰的触发方式和时钟干扰类似，主要的手段就是向目标电路以稳定的速率输入电力，并当需要在特定指令处触发非预期结果时</li>
+</ul>
+<h1 id="socketcan"><a href="#socketcan" class="headerlink" title="socketcan"></a>socketcan</h1><h2 id="socketcan结构图"><a href="#socketcan结构图" class="headerlink" title="socketcan结构图"></a>socketcan结构图</h2><p><img src="/2026/04/22/car-hacking/image-1.png" srcset="/img/loading.gif" lazyload alt="alt text"></p>
+<h2 id="设置can-utils"><a href="#设置can-utils" class="headerlink" title="设置can-utils"></a>设置can-utils</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt install can-utils<br></code></pre></td></tr></table></figure>
+
+<p>dmesg -&gt; 显示<code>内核</code>和<code>环形缓冲区</code></p>
+<h2 id="实体can网络配置"><a href="#实体can网络配置" class="headerlink" title="实体can网络配置"></a>实体can网络配置</h2><h2 id="虚拟can网络配置"><a href="#虚拟can网络配置" class="headerlink" title="虚拟can网络配置"></a>虚拟can网络配置</h2><p>设置can总线</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> modprobe vcan<br><span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> add dev vcan0 <span class="hljs-built_in">type</span> vcan<br><span class="hljs-built_in">sudo</span> ip <span class="hljs-built_in">link</span> <span class="hljs-built_in">set</span> up vcan0<br></code></pre></td></tr></table></figure>
+
+<h2 id="can工具套件"><a href="#can工具套件" class="headerlink" title="can工具套件"></a>can工具套件</h2><p>asc2log -&gt; 将ASCII码can转换为SocketCAN日志文件格式<br>bcmserver -&gt; 监听28600端口，处理低效重复的信息<br>canbusload -&gt; 该工具判断哪个总线ID向总线上发送的流量最多<br>candump -&gt; 转储can数据包，可以配置过滤器，对数据包进行日志记录</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment">#生成捕获日志</span><br><span class="hljs-attribute">candump</span> -l <br></code></pre></td></tr></table></figure>
+<p>canplayer -&gt; 可以针对帧进行重复攻击</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-comment">#对目标进行发送</span><br>canplayer -i `<span class="hljs-built_in">file</span>.<span class="hljs-built_in">log</span>`<br></code></pre></td></tr></table></figure>
+<p>cansend -&gt; 发送一个单独的can数据帧</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">cansend</span> <br></code></pre></td></tr></table></figure>
+<p>cangen -&gt; 生成can数据包，按照设定时间间接发送数据包<br>canfdtest -&gt; 两个总线之间的发送和接收测试<br>cansniffer -&gt; 一个交互嗅探器，可按照ID对数据包进行分组</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment">#发送一个can的标记器</span><br><span class="hljs-attribute">cansniffer</span> -c vcan0 <br></code></pre></td></tr></table></figure>
+
+<h2 id="抓包工具"><a href="#抓包工具" class="headerlink" title="抓包工具"></a>抓包工具</h2><p>sarvvycan<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/collin80/SavvyCAN/releases/tag/continuous-QT6">https://github.com/collin80/SavvyCAN/releases/tag/continuous-QT6</a></p>
 
                 
               </div>
@@ -373,13 +421,6 @@
               <div class="post-metas my-3">
   
   
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B/" class="print-no-link">#测试用例</a>
-      
-    </div>
-  
 </div>
 
 
@@ -388,8 +429,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>怀念最好的五个人</div>
-      <div>https://linki4964.github.io/2026/04/22/lgd/</div>
+      <div>车联网安全笔记之ECU攻击，CAN逆向</div>
+      <div>https://linki4964.github.io/2026/04/22/car-hacking/</div>
     </div>
     <div class="license-meta">
       
@@ -433,9 +474,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/04/22/pozhenge/" title="破振阁破振试炼 wp">
+                      <a href="/2026/04/22/lgd/" title="怀念最好的五个人">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">破振阁破振试炼 wp</span>
+                        <span class="hidden-mobile">怀念最好的五个人</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -443,8 +484,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/04/22/car-hacking/" title="车联网安全笔记之ECU攻击，CAN逆向">
-                        <span class="hidden-mobile">车联网安全笔记之ECU攻击，CAN逆向</span>
+                      <a href="/2026/04/22/recon-tips/" title="漏洞赏金新手手册之信息收集篇">
+                        <span class="hidden-mobile">漏洞赏金新手手册之信息收集篇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
